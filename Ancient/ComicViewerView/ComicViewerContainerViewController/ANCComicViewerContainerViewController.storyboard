@@ -39,8 +39,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEx-rc-LIt">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OZ-9d-S4A">
-                                        <rect key="frame" x="174.33333333333334" y="11.666666666666671" width="44.333333333333343" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OZ-9d-S4A">
+                                        <rect key="frame" x="196.66666666666666" y="22" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -57,6 +57,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="59"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vWN-P1-i8B">
+                                <rect key="frame" x="-2" y="739" width="397" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="ziH-bv-TfT"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,6 +71,9 @@
                             <constraint firstItem="S0e-va-lzN" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="8V0-HX-v2U"/>
                             <constraint firstItem="S0e-va-lzN" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="Bak-JB-63z"/>
                             <constraint firstItem="KEx-rc-LIt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Bms-GL-iRk"/>
+                            <constraint firstItem="L0p-Xw-8pS" firstAttribute="top" secondItem="vWN-P1-i8B" secondAttribute="bottom" id="NYw-yZ-MbY"/>
+                            <constraint firstItem="vWN-P1-i8B" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="O5w-WJ-whW"/>
+                            <constraint firstItem="vWN-P1-i8B" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Xwb-r9-mNS"/>
                             <constraint firstAttribute="trailing" secondItem="KEx-rc-LIt" secondAttribute="trailing" id="fkH-6d-L5a"/>
                             <constraint firstItem="KEx-rc-LIt" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="gl3-9z-7q9"/>
                             <constraint firstItem="S0e-va-lzN" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="nQR-Q1-dj6"/>
@@ -78,6 +87,7 @@
                         <outlet property="headerSafeAreaView" destination="S0e-va-lzN" id="udo-rk-dbG"/>
                         <outlet property="headerView" destination="KEx-rc-LIt" id="ihZ-ac-Wyi"/>
                         <outlet property="nextButton" destination="aul-Zz-iRr" id="QED-RP-0XO"/>
+                        <outlet property="pageSlider" destination="vWN-P1-i8B" id="FAB-1c-6U1"/>
                         <outlet property="previousButton" destination="Azb-GQ-PN9" id="9R0-5x-e5l"/>
                         <outlet property="titleLabel" destination="4OZ-9d-S4A" id="hZX-vH-ob3"/>
                         <outlet property="toolbar" destination="L0p-Xw-8pS" id="MTr-rI-fMP"/>

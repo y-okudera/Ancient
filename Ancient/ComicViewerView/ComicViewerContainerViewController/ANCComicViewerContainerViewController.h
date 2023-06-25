@@ -11,6 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ANCComicViewerContainerViewController : UIViewController
 
+- (void)setUpPageSliderRange;
+- (void)updatePageSliderValue:(NSUInteger)value;
+- (void)updateToolbarTitle:(NSString *)title;
+- (void)hideToolbar;
+
 @end
 
 NS_ASSUME_NONNULL_END

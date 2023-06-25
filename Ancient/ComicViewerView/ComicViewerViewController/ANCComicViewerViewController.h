@@ -6,10 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ANCPageController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ANCComicViewerViewController : UIPageViewController <UIPageViewControllerDelegate>
+
+@property (readonly, strong, nonatomic) ANCPageController *pageController;
+
+- (void)setContentViewControllerAtIndex:(NSUInteger)index;
 
 @end
 
