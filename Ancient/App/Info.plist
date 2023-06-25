@@ -16,7 +16,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>ANCComicViewerViewController</string>
+					<string>ANCComicViewerContainerViewController</string>
 				</dict>
 			</array>
 		</dict>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B6C775492A48234600CF0B86 /* ANCPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C775482A48234600CF0B86 /* ANCPageController.m */; };
 		B6C775542A482F6B00CF0B86 /* UIApplication+ANCCurrentWindowInterfaceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C775532A482F6B00CF0B86 /* UIApplication+ANCCurrentWindowInterfaceOrientation.m */; };
+		B6C775582A48483100CF0B86 /* ANCComicViewerContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C775572A48483100CF0B86 /* ANCComicViewerContainerViewController.m */; };
+		B6C7755A2A48483900CF0B86 /* ANCComicViewerContainerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C775592A48483900CF0B86 /* ANCComicViewerContainerViewController.storyboard */; };
 		B6DD3E682A471BE2003CBB42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DD3E672A471BE2003CBB42 /* AppDelegate.m */; };
 		B6DD3E6B2A471BE2003CBB42 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DD3E6A2A471BE2003CBB42 /* SceneDelegate.m */; };
 		B6DD3E732A471BE3003CBB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6DD3E722A471BE3003CBB42 /* Assets.xcassets */; };
@@ -45,6 +47,9 @@
 		B6C775482A48234600CF0B86 /* ANCPageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANCPageController.m; sourceTree = "<group>"; };
 		B6C775522A482F6B00CF0B86 /* UIApplication+ANCCurrentWindowInterfaceOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+ANCCurrentWindowInterfaceOrientation.h"; sourceTree = "<group>"; };
 		B6C775532A482F6B00CF0B86 /* UIApplication+ANCCurrentWindowInterfaceOrientation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+ANCCurrentWindowInterfaceOrientation.m"; sourceTree = "<group>"; };
+		B6C775562A48483100CF0B86 /* ANCComicViewerContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANCComicViewerContainerViewController.h; sourceTree = "<group>"; };
+		B6C775572A48483100CF0B86 /* ANCComicViewerContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANCComicViewerContainerViewController.m; sourceTree = "<group>"; };
+		B6C775592A48483900CF0B86 /* ANCComicViewerContainerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ANCComicViewerContainerViewController.storyboard; sourceTree = "<group>"; };
 		B6DD3E632A471BE2003CBB42 /* Ancient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ancient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DD3E662A471BE2003CBB42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B6DD3E672A471BE2003CBB42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -126,6 +131,16 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		B6C775552A48480B00CF0B86 /* ComicViewerContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B6C775562A48483100CF0B86 /* ANCComicViewerContainerViewController.h */,
+				B6C775572A48483100CF0B86 /* ANCComicViewerContainerViewController.m */,
+				B6C775592A48483900CF0B86 /* ANCComicViewerContainerViewController.storyboard */,
+			);
+			path = ComicViewerContainerViewController;
+			sourceTree = "<group>";
+		};
 		B6DD3E5A2A471BE2003CBB42 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +191,7 @@
 		B6DD3EA52A4739D5003CBB42 /* ComicViewerView */ = {
 			isa = PBXGroup;
 			children = (
+				B6C775552A48480B00CF0B86 /* ComicViewerContainerViewController */,
 				B6C7754A2A48241000CF0B86 /* ComicViewerViewController */,
 				B6DD3EA62A4739E9003CBB42 /* PageContentView */,
 				B6DD3EA72A475C9A003CBB42 /* PageController */,
@@ -309,6 +325,7 @@
 				B6DD3E732A471BE3003CBB42 /* Assets.xcassets in Resources */,
 				B6DD3EA42A473449003CBB42 /* ANCPageContentViewController.storyboard in Resources */,
 				B6DD3EA22A472BBC003CBB42 /* ANCComicViewerViewController.storyboard in Resources */,
+				B6C7755A2A48483900CF0B86 /* ANCComicViewerContainerViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +356,7 @@
 				B6DD3E792A471BE3003CBB42 /* main.m in Sources */,
 				B6DD3E6B2A471BE2003CBB42 /* SceneDelegate.m in Sources */,
 				B6DD3EA02A4728BD003CBB42 /* ANCPageContentViewController.m in Sources */,
+				B6C775582A48483100CF0B86 /* ANCComicViewerContainerViewController.m in Sources */,
 				B6C775542A482F6B00CF0B86 /* UIApplication+ANCCurrentWindowInterfaceOrientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,7 +527,7 @@
 				INFOPLIST_FILE = Ancient/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = ANCComicViewerViewController;
+				INFOPLIST_KEY_UIMainStoryboardFile = ANCComicViewerContainerViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -536,7 +554,7 @@
 				INFOPLIST_FILE = Ancient/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = ANCComicViewerViewController;
+				INFOPLIST_KEY_UIMainStoryboardFile = ANCComicViewerContainerViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
