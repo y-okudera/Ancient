@@ -1,17 +1,17 @@
 //
-//  AncientUITests.m
-//  AncientUITests
+//  DemoAppUITests.m
+//  DemoAppUITests
 //
-//  Created by Yuki Okudera on 2023/06/24.
+//  Created by Yuki Okudera on 2023/06/27.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface AncientUITests : XCTestCase
+@interface DemoAppUITests : XCTestCase
 
 @end
 
-@implementation AncientUITests
+@implementation DemoAppUITests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.

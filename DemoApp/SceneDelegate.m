@@ -1,10 +1,11 @@
 //
 //  SceneDelegate.m
-//  Ancient
+//  DemoApp
 //
-//  Created by Yuki Okudera on 2023/06/24.
+//  Created by Yuki Okudera on 2023/06/27.
 //
 
+#import <AncientComicViewerView/ANCComicViewerContainerViewController.h>
 #import "SceneDelegate.h"
 
 @interface SceneDelegate ()
@@ -18,6 +19,13 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+
+    self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
+    [self.window makeKeyAndVisible];
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"ANCComicViewerContainerViewController" bundle: [NSBundle bundleForClass:[ANCComicViewerContainerViewController class]]];
+    ANCComicViewerContainerViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ANCComicViewerContainerViewController"];
+    self.window.rootViewController = vc;
 }
 
 

@@ -1,8 +1,8 @@
 //
 //  main.m
-//  Ancient
+//  DemoApp
 //
-//  Created by Yuki Okudera on 2023/06/24.
+//  Created by Yuki Okudera on 2023/06/27.
 //
 
 #import <UIKit/UIKit.h>

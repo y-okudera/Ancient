@@ -1,10 +1,11 @@
 //
 //  AppDelegate.m
-//  Ancient
+//  DemoApp
 //
-//  Created by Yuki Okudera on 2023/06/24.
+//  Created by Yuki Okudera on 2023/06/27.
 //
 
+#import <AncientComicViewerView/ANCComicViewerContainerViewController.h>
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -15,7 +16,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    self.window = UIWindow.new;
+        [self.window makeKeyAndVisible];
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"ANCComicViewerContainerViewController" bundle: [NSBundle bundleForClass:[ANCComicViewerContainerViewController class]]];
+    ANCComicViewerContainerViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ANCComicViewerContainerViewController"];
+        self.window.rootViewController = vc;
+
     return YES;
 }
 

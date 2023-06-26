@@ -1,17 +1,17 @@
 //
-//  AncientUITestsLaunchTests.m
-//  AncientUITests
+//  DemoAppUITestsLaunchTests.m
+//  DemoAppUITests
 //
-//  Created by Yuki Okudera on 2023/06/24.
+//  Created by Yuki Okudera on 2023/06/27.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface AncientUITestsLaunchTests : XCTestCase
+@interface DemoAppUITestsLaunchTests : XCTestCase
 
 @end
 
-@implementation AncientUITestsLaunchTests
+@implementation DemoAppUITestsLaunchTests
 
 + (BOOL)runsForEachTargetApplicationUIConfiguration {
     return YES;

@@ -52,11 +52,15 @@
 }
 
 - (IBAction)didTapNextButton:(UIBarButtonItem *)sender {
-    DLog(@"次の話ボタンタップ")
+#if DEBUG
+    NSLog(@"次の話ボタンタップ");
+#endif
 }
 
 - (IBAction)didTapPreviousButton:(UIBarButtonItem *)sender {
-    DLog(@"前の話ボタンタップ")
+#if DEBUG
+    NSLog(@"前の話ボタンタップ");
+#endif
 }
 
 #pragma mark - public
@@ -92,7 +96,7 @@
 #pragma mark - class extension
 
 - (void)addComicViewerView {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"ANCComicViewerViewController" bundle: [NSBundle mainBundle]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"ANCComicViewerViewController" bundle: [NSBundle bundleForClass:[ANCComicViewerViewController class]]];
     ANCComicViewerViewController *vc = [storyboard instantiateViewControllerWithIdentifier: @"ANCComicViewerViewController"];
     [vc willMoveToParentViewController: self];
     [self addChildViewController:vc];

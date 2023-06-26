@@ -1,17 +1,17 @@
 //
-//  AncientTests.m
-//  AncientTests
+//  AncientComicViewerViewTests.m
+//  AncientComicViewerViewTests
 //
-//  Created by Yuki Okudera on 2023/06/24.
+//  Created by Yuki Okudera on 2023/06/27.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface AncientTests : XCTestCase
+@interface AncientComicViewerViewTests : XCTestCase
 
 @end
 
-@implementation AncientTests
+@implementation AncientComicViewerViewTests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.

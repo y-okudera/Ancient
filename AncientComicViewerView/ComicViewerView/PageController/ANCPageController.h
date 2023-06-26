@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ANCPageContentViewController.h"
+#import <AncientComicViewerView/ANCPageContentViewController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
