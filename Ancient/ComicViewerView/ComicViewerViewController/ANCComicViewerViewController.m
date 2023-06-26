@@ -43,6 +43,33 @@
     self.view.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
 }
 
+#pragma mark - public
+
+- (void)setContentViewControllerAtIndex:(NSUInteger)index {
+    // Create the page view controller
+    ANCPageContentViewController *pageContentViewController = [self.pageController viewControllerAtIndex: index];
+    NSArray<UIViewController *> *viewControllers = @[pageContentViewController];
+    [self setViewControllers: viewControllers direction: UIPageViewControllerNavigationDirectionForward animated: NO completion: nil];
+
+    // animatedをYESにする場合はキャッシュ更新の考慮が必要
+//    __block ANCComicViewerViewController *weakRef = self;
+//    [self setViewControllers: viewControllers
+//                   direction: UIPageViewControllerNavigationDirectionForward
+//                    animated: YES
+//                  completion: ^(BOOL finished) {
+//        if (!finished) {
+//            return;
+//        }
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [weakRef setViewControllers: viewControllers
+//                              direction: UIPageViewControllerNavigationDirectionForward
+//                               animated: NO
+//                             completion: nil
+//            ];
+//        });
+//    }];
+}
+
 #pragma mark - UIContentContainer
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
@@ -114,33 +141,6 @@
 
 - (UIInterfaceOrientationMask)pageViewControllerSupportedInterfaceOrientations:(UIPageViewController *)pageViewController {
     return UIInterfaceOrientationMaskAll;
-}
-
-#pragma mark - public
-
-- (void)setContentViewControllerAtIndex:(NSUInteger)index {
-    // Create the page view controller
-    ANCPageContentViewController *pageContentViewController = [self.pageController viewControllerAtIndex: index];
-    NSArray<UIViewController *> *viewControllers = @[pageContentViewController];
-    [self setViewControllers: viewControllers direction: UIPageViewControllerNavigationDirectionForward animated: NO completion: nil];
-
-    // animatedをYESにする場合はキャッシュ更新の考慮が必要
-//    __block ANCComicViewerViewController *weakRef = self;
-//    [self setViewControllers: viewControllers
-//                   direction: UIPageViewControllerNavigationDirectionForward
-//                    animated: YES
-//                  completion: ^(BOOL finished) {
-//        if (!finished) {
-//            return;
-//        }
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [weakRef setViewControllers: viewControllers
-//                              direction: UIPageViewControllerNavigationDirectionForward
-//                               animated: NO
-//                             completion: nil
-//            ];
-//        });
-//    }];
 }
 
 @end

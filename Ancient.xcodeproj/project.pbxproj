@@ -22,7 +22,6 @@
 		B6DD3E9D2A472888003CBB42 /* ANCComicViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DD3E9C2A472888003CBB42 /* ANCComicViewerViewController.m */; };
 		B6DD3EA02A4728BD003CBB42 /* ANCPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DD3E9F2A4728BD003CBB42 /* ANCPageContentViewController.m */; };
 		B6DD3EA22A472BBC003CBB42 /* ANCComicViewerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DD3EA12A472BBC003CBB42 /* ANCComicViewerViewController.storyboard */; };
-		B6DD3EA42A473449003CBB42 /* ANCPageContentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DD3EA32A473449003CBB42 /* ANCPageContentViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +69,6 @@
 		B6DD3E9E2A4728BD003CBB42 /* ANCPageContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANCPageContentViewController.h; sourceTree = "<group>"; };
 		B6DD3E9F2A4728BD003CBB42 /* ANCPageContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANCPageContentViewController.m; sourceTree = "<group>"; };
 		B6DD3EA12A472BBC003CBB42 /* ANCComicViewerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ANCComicViewerViewController.storyboard; sourceTree = "<group>"; };
-		B6DD3EA32A473449003CBB42 /* ANCPageContentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ANCPageContentViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +204,6 @@
 			children = (
 				B6DD3E9E2A4728BD003CBB42 /* ANCPageContentViewController.h */,
 				B6DD3E9F2A4728BD003CBB42 /* ANCPageContentViewController.m */,
-				B6DD3EA32A473449003CBB42 /* ANCPageContentViewController.storyboard */,
 			);
 			path = PageContentView;
 			sourceTree = "<group>";
@@ -325,7 +322,6 @@
 			files = (
 				B6DD3E762A471BE3003CBB42 /* LaunchScreen.storyboard in Resources */,
 				B6DD3E732A471BE3003CBB42 /* Assets.xcassets in Resources */,
-				B6DD3EA42A473449003CBB42 /* ANCPageContentViewController.storyboard in Resources */,
 				B6DD3EA22A472BBC003CBB42 /* ANCComicViewerViewController.storyboard in Resources */,
 				B6C7755A2A48483900CF0B86 /* ANCComicViewerContainerViewController.storyboard in Resources */,
 			);

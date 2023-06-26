@@ -6,7 +6,6 @@
 //
 
 #import "ANCPageController.h"
-#import "ANCPageContentViewController.h"
 #import "UIApplication+ANCCurrentWindowInterfaceOrientation.h"
 
 @interface ANCPageController ()
@@ -24,40 +23,6 @@
 @end
 
 @implementation ANCPageController
-
-#pragma mark - UIPageViewControllerDataSource
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSUInteger index = [self indexOfViewController: (ANCPageContentViewController *)viewController];
-    if ((index == 0) || (index == NSNotFound)) {
-        return nil;
-    }
-    index--;
-
-    return [self viewControllerAtIndex:index];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSUInteger index = [self indexOfViewController: (ANCPageContentViewController *)viewController];
-    if (index == NSNotFound) {
-        return nil;
-    }
-    index++;
-
-    UIInterfaceOrientation orientation = [UIApplication currentInterfaceOrientation];
-    // Whether the device orientation is Portrait or not.
-    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        if (index == self.singlePageData.count) {
-            return nil;
-        }
-    } else {
-        if (index == self.rightPageData.count) {
-            return nil;
-        }
-    }
-
-    return [self viewControllerAtIndex:index];
-}
 
 #pragma mark - public
 
@@ -80,8 +45,7 @@
     }
 
     // Create a new view controller and pass suitable data.
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"ANCPageContentViewController" bundle: [NSBundle mainBundle]];
-    ANCPageContentViewController *pageContentViewController = [storyboard instantiateViewControllerWithIdentifier: @"ANCPageContentViewController"];
+    ANCPageContentViewController *pageContentViewController = [[ANCPageContentViewController alloc] init];
 
     UIInterfaceOrientation orientation = [UIApplication currentInterfaceOrientation];
     // Whether the device orientation is Portrait or not.
@@ -137,6 +101,40 @@
     } else {
         return [self.rightPageData indexOfObject: viewController.imageURL1];
     }
+}
+
+#pragma mark - UIPageViewControllerDataSource
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    NSUInteger index = [self indexOfViewController: (ANCPageContentViewController *)viewController];
+    if ((index == 0) || (index == NSNotFound)) {
+        return nil;
+    }
+    index--;
+
+    return [self viewControllerAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    NSUInteger index = [self indexOfViewController: (ANCPageContentViewController *)viewController];
+    if (index == NSNotFound) {
+        return nil;
+    }
+    index++;
+
+    UIInterfaceOrientation orientation = [UIApplication currentInterfaceOrientation];
+    // Whether the device orientation is Portrait or not.
+    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        if (index == self.singlePageData.count) {
+            return nil;
+        }
+    } else {
+        if (index == self.rightPageData.count) {
+            return nil;
+        }
+    }
+
+    return [self viewControllerAtIndex:index];
 }
 
 @end

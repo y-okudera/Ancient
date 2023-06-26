@@ -31,16 +31,6 @@
     [self loadImage];
 }
 
-#pragma mark - UIContentContainer
-
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [super viewWillTransitionToSize: size withTransitionCoordinator: coordinator];
-
-    [coordinator animateAlongsideTransition: ^(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
-        [self loadImage];
-    } completion: nil];
-}
-
 #pragma mark - class extension
 
 - (void)setUpImageViews {
@@ -128,6 +118,16 @@
             }
         });
     });
+}
+
+#pragma mark - UIContentContainer
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize: size withTransitionCoordinator: coordinator];
+
+    [coordinator animateAlongsideTransition: ^(id<UIViewControllerTransitionCoordinatorContext> _Nonnull context) {
+        [self loadImage];
+    } completion: nil];
 }
 
 @end
