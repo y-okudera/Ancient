@@ -43,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6C0F6332A49F4BE005F8833 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B6C775472A48234600CF0B86 /* ANCPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANCPageController.h; sourceTree = "<group>"; };
 		B6C775482A48234600CF0B86 /* ANCPageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANCPageController.m; sourceTree = "<group>"; };
 		B6C775522A482F6B00CF0B86 /* UIApplication+ANCCurrentWindowInterfaceOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+ANCCurrentWindowInterfaceOrientation.h"; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 				B6DD3E772A471BE3003CBB42 /* Info.plist */,
 				B6DD3E742A471BE3003CBB42 /* LaunchScreen.storyboard */,
 				B6DD3E782A471BE3003CBB42 /* main.m */,
+				B6C0F6332A49F4BE005F8833 /* PrefixHeader.pch */,
 				B6DD3E692A471BE2003CBB42 /* SceneDelegate.h */,
 				B6DD3E6A2A471BE2003CBB42 /* SceneDelegate.m */,
 			);
@@ -523,6 +525,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B8PR34D6DP;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT)/App/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ancient/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -550,6 +553,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B8PR34D6DP;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT)/App/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ancient/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -52,15 +52,11 @@
 }
 
 - (IBAction)didTapNextButton:(UIBarButtonItem *)sender {
-#if DEBUG
-    NSLog(@"次の話ボタンタップ");
-#endif
+    DLog(@"次の話ボタンタップ")
 }
 
 - (IBAction)didTapPreviousButton:(UIBarButtonItem *)sender {
-#if DEBUG
-    NSLog(@"前の話ボタンタップ");
-#endif
+    DLog(@"前の話ボタンタップ")
 }
 
 #pragma mark - public

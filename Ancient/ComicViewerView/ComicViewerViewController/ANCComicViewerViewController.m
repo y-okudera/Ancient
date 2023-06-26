@@ -60,10 +60,8 @@
         }
         spreadPageDataIndex = spreadPageDataIndex == NSNotFound ? 0 : spreadPageDataIndex;
 
-#if DEBUG
-        NSLog(@"imageURL1: %@ imageURL2: %@", pageContentVC.imageURL1, pageContentVC.imageURL2);
-        NSLog(@"singlePageDataIndex: %lu spreadPageDataIndex: %lu", singlePageDataIndex, spreadPageDataIndex);
-#endif
+        DLog(@"imageURL1: %@ imageURL2: %@", pageContentVC.imageURL1, pageContentVC.imageURL2)
+        DLog(@"singlePageDataIndex: %lu spreadPageDataIndex: %lu", singlePageDataIndex, spreadPageDataIndex)
 
         UIInterfaceOrientation orientation = [UIApplication currentInterfaceOrientation];
         if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
@@ -98,10 +96,8 @@
     }
     spreadPageDataIndex = spreadPageDataIndex == NSNotFound ? 0 : spreadPageDataIndex;
 
-#if DEBUG
-    NSLog(@"imageURL1: %@ imageURL2: %@", pageContentVC.imageURL1, pageContentVC.imageURL2);
-    NSLog(@"singlePageDataIndex: %lu spreadPageDataIndex: %lu", singlePageDataIndex, spreadPageDataIndex);
-#endif
+    DLog(@"imageURL1: %@ imageURL2: %@", pageContentVC.imageURL1, pageContentVC.imageURL2);
+    DLog(@"singlePageDataIndex: %lu spreadPageDataIndex: %lu", singlePageDataIndex, spreadPageDataIndex)
 
     UIInterfaceOrientation orientation = [UIApplication currentInterfaceOrientation];
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
