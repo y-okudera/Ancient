@@ -74,8 +74,8 @@
         [self setContentViewControllerAtIndex: self.pageController.currentIndex];
 
         ANCComicViewerContainerViewController *vc = (ANCComicViewerContainerViewController *)[self parentViewController];
-        [vc updatePageSliderValue: self.pageController.currentIndex];
         [vc setUpPageSliderRange];
+        [vc updatePageSliderValue: self.pageController.currentIndex];
         [vc hideToolbar];
     } completion: nil];
 }
@@ -112,8 +112,8 @@
     
     ANCComicViewerContainerViewController *vc = (ANCComicViewerContainerViewController *)[self parentViewController];
 
-    [vc updatePageSliderValue: self.pageController.currentIndex];
     [vc setUpPageSliderRange];
+    [vc updatePageSliderValue: self.pageController.currentIndex];
 }
 
 - (UIInterfaceOrientationMask)pageViewControllerSupportedInterfaceOrientations:(UIPageViewController *)pageViewController {

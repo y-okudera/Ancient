@@ -15,44 +15,9 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVc-S0-vef">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T17-tg-jh3">
-                                        <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="759"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-LE-1Ab">
-                                        <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="759"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="fP9-LE-1Ab" secondAttribute="trailing" id="8LK-I3-dov"/>
-                                    <constraint firstItem="fP9-LE-1Ab" firstAttribute="leading" secondItem="T17-tg-jh3" secondAttribute="trailing" id="8sC-ux-tKr"/>
-                                    <constraint firstAttribute="bottom" secondItem="T17-tg-jh3" secondAttribute="bottom" id="Bmy-2x-VA1"/>
-                                    <constraint firstItem="fP9-LE-1Ab" firstAttribute="top" secondItem="HVc-S0-vef" secondAttribute="top" id="Qu7-4u-raM"/>
-                                    <constraint firstItem="T17-tg-jh3" firstAttribute="top" secondItem="HVc-S0-vef" secondAttribute="top" id="bPU-cW-99U"/>
-                                    <constraint firstItem="fP9-LE-1Ab" firstAttribute="width" secondItem="T17-tg-jh3" secondAttribute="width" multiplier="0.998305" priority="750" id="dR4-Qc-o2d"/>
-                                    <constraint firstAttribute="bottom" secondItem="fP9-LE-1Ab" secondAttribute="bottom" id="qAs-ac-mVb"/>
-                                    <constraint firstItem="T17-tg-jh3" firstAttribute="leading" secondItem="HVc-S0-vef" secondAttribute="leading" id="qbm-Vx-ErO"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HVc-S0-vef" secondAttribute="trailing" id="Gdg-44-NmC"/>
-                            <constraint firstItem="T17-tg-jh3" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.5" priority="250" id="NXt-j0-1Nt"/>
-                            <constraint firstItem="HVc-S0-vef" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="YQE-sS-8ez"/>
-                            <constraint firstItem="fP9-LE-1Ab" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.5" priority="250" id="hRh-vF-HqF"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="HVc-S0-vef" secondAttribute="bottom" id="oKQ-mC-mzV"/>
-                            <constraint firstItem="HVc-S0-vef" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="uhi-O8-PeM"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="imageView1" destination="fP9-LE-1Ab" id="jbj-hl-hIr"/>
-                        <outlet property="imageView2" destination="T17-tg-jh3" id="cP2-kd-Ky7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
