@@ -36,7 +36,7 @@
         @"https://ichef.bbci.co.uk/news/467/cpsprodpb/660A/production/_122722162_download.png",
     ];
 
-    ANCViewerContentData *viewerContentData = [[ANCViewerContentData alloc] initWithPageMasterData: pageMasterData title: @"サンプル漫画 - 123"];
+    ANCViewerContentData *viewerContentData = [[ANCViewerContentData alloc] initWithPageMasterData: pageMasterData title: @"DemoApp サンプル漫画"];
     [vc addComicViewerViewWithContentData: viewerContentData];
     self.window.rootViewController = vc;
 }
