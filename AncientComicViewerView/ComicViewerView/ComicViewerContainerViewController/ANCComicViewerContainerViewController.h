@@ -6,14 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AncientComicViewerView/ANCViewerContentData.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ANCComicViewerContainerViewController : UIViewController
 
+- (void)addComicViewerViewWithContentData:(ANCViewerContentData *)viewerContentData;
 - (void)setUpPageSliderRange;
 - (void)updatePageSliderValue:(NSUInteger)value;
-- (void)updateToolbarTitle:(NSString *)title;
 - (void)hideToolbar;
 
 @end

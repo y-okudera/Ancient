@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ANCComicViewerViewController : UIPageViewController <UIPageViewControllerDelegate>
 
-@property (readonly, strong, nonatomic) ANCPageController *pageController;
+@property (strong, nonatomic) ANCPageController *pageController;
 
 - (void)setContentViewControllerAtIndex:(NSUInteger)index;
 

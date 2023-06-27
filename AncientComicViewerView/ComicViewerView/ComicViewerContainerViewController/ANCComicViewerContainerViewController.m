@@ -19,8 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *previousButton;
 
-- (void)addComicViewerView;
+- (void)removeComicViewerView;
 - (void)setUpToolbar;
+- (void)updateToolbarTitle:(NSString *)title;
+- (void)bringToolbarToFront;
 - (void)toggleToolbar:(UITapGestureRecognizer *)recognizer;
 - (void)showToolbar;
 
@@ -30,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addComicViewerView];
+    
     [self setUpToolbar];
 }
 
@@ -65,14 +67,32 @@
 
 #pragma mark - public
 
+- (void)addComicViewerViewWithContentData:(ANCViewerContentData *)viewerContentData {
+
+    [self removeComicViewerView];
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"ANCComicViewerViewController" bundle: [NSBundle bundleForClass:[ANCComicViewerViewController class]]];
+    ANCComicViewerViewController *vc = [storyboard instantiateViewControllerWithIdentifier: @"ANCComicViewerViewController"];
+    vc.pageController = [[ANCPageController alloc] initWithViewerContentData: viewerContentData];
+
+    [vc willMoveToParentViewController: self];
+    [self addChildViewController:vc];
+    [vc.view setFrame: self.view.bounds];
+    [self.view addSubview: vc.view];
+    [vc didMoveToParentViewController: self];
+
+    [self updateToolbarTitle: vc.pageController.viewerContentData.title];
+    [self bringToolbarToFront];
+}
+
 - (void)setUpPageSliderRange {
     self.pageSlider.minimumValue = 0;
     ANCComicViewerViewController *vc = [[self childViewControllers] firstObject];
     UIInterfaceOrientation orientation = [UIApplication currentInterfaceOrientation];
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        self.pageSlider.maximumValue = vc.pageController.singlePageData.count - 1;
+        self.pageSlider.maximumValue = vc.pageController.viewerContentData.singlePageData.count - 1;
     } else {
-        self.pageSlider.maximumValue = vc.pageController.rightPageData.count - 1;
+        self.pageSlider.maximumValue = vc.pageController.viewerContentData.rightPageData.count - 1;
     }
 }
 
@@ -95,23 +115,18 @@
 
 #pragma mark - class extension
 
-- (void)addComicViewerView {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"ANCComicViewerViewController" bundle: [NSBundle bundleForClass:[ANCComicViewerViewController class]]];
-    ANCComicViewerViewController *vc = [storyboard instantiateViewControllerWithIdentifier: @"ANCComicViewerViewController"];
-    [vc willMoveToParentViewController: self];
-    [self addChildViewController:vc];
-    [vc.view setFrame: self.view.bounds];
-    [self.view addSubview: vc.view];
-    [vc didMoveToParentViewController: self];
+- (void)removeComicViewerView {
+    NSArray<UIViewController *> *childViewControllers = [self childViewControllers];
+    [childViewControllers enumerateObjectsUsingBlock: ^(UIViewController *childViewController, NSUInteger index, BOOL *stop) {
+        [childViewController willMoveToParentViewController:nil];
+        [childViewController.view removeFromSuperview];
+        [childViewController removeFromParentViewController];
+    }];
 }
 
 - (void)setUpToolbar {
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(toggleToolbar:)];
     [self.view addGestureRecognizer: tapGesture];
-    [self.view bringSubviewToFront: self.headerSafeAreaView];
-    [self.view bringSubviewToFront: self.headerView];
-    [self.view bringSubviewToFront: self.toolbar];
-    [self.view bringSubviewToFront: self.pageSlider];
     self.headerSafeAreaView.alpha = 0.0;
     self.headerView.alpha = 0.0;
     self.toolbar.alpha = 0.0;
@@ -120,6 +135,13 @@
 
     // スライダーの最小値と最大値を設定
     [self setUpPageSliderRange];
+}
+
+- (void)bringToolbarToFront {
+    [self.view bringSubviewToFront: self.headerSafeAreaView];
+    [self.view bringSubviewToFront: self.headerView];
+    [self.view bringSubviewToFront: self.toolbar];
+    [self.view bringSubviewToFront: self.pageSlider];
 }
 
 - (void)toggleToolbar:(UITapGestureRecognizer *)recognizer {

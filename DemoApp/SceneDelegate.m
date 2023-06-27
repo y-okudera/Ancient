@@ -25,6 +25,19 @@
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"ANCComicViewerContainerViewController" bundle: [NSBundle bundleForClass:[ANCComicViewerContainerViewController class]]];
     ANCComicViewerContainerViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ANCComicViewerContainerViewController"];
+
+    // MARK: - 画面回転時、画像URLからindexを取得するため、テストデータであっても配列内に画像URLが重複しないよう考慮が必要
+    NSArray<NSString *> *pageMasterData = @[
+        @"https://affi-drifter.com/wp-content/uploads/2018/05/20170828180155-320x186.jpg",
+        @"https://grapee.jp/wp-content/uploads/57507_01.jpg",
+        @"https://grapee.jp/wp-content/uploads/57507_02.jpg",
+        @"https://grapee.jp/wp-content/uploads/57507_03.jpg",
+        @"https://grapee.jp/wp-content/uploads/57507_04.jpg",
+        @"https://ichef.bbci.co.uk/news/467/cpsprodpb/660A/production/_122722162_download.png",
+    ];
+
+    ANCViewerContentData *viewerContentData = [[ANCViewerContentData alloc] initWithPageMasterData: pageMasterData title: @"サンプル漫画 - 123"];
+    [vc addComicViewerViewWithContentData: viewerContentData];
     self.window.rootViewController = vc;
 }
 

@@ -16,14 +16,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    self.window = UIWindow.new;
-        [self.window makeKeyAndVisible];
-
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"ANCComicViewerContainerViewController" bundle: [NSBundle bundleForClass:[ANCComicViewerContainerViewController class]]];
-    ANCComicViewerContainerViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ANCComicViewerContainerViewController"];
-        self.window.rootViewController = vc;
-
     return YES;
 }
 

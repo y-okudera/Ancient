@@ -10,14 +10,8 @@
 
 @interface ANCPageController ()
 
-@property (readwrite, strong, nonatomic) NSString *title;
-@property (readwrite, strong, nonatomic) NSArray<NSString *> *pageMasterData;
-@property (readwrite, strong, nonatomic) NSArray<NSString *> *singlePageData;
-@property (readwrite, strong, nonatomic) NSArray<NSString *> *rightPageData;
-@property (readwrite, strong, nonatomic) NSArray<NSString *> *leftPageData;
+@property (readwrite, strong, nonatomic) ANCViewerContentData *viewerContentData;
 
-- (void)updateSinglePageData;
-- (void)updateSpreadPageData;
 - (NSUInteger)indexOfViewController:(ANCPageContentViewController *)viewController;
 
 @end
@@ -26,21 +20,17 @@
 
 #pragma mark - public
 
-- (instancetype)initWithPageMasterData:(NSArray<NSString *> *)pageMasterData title:(NSString *)title {
+- (instancetype)initWithViewerContentData:(ANCViewerContentData *)viewerContentData {
     self = [super init];
     if (self) {
-        self.pageMasterData = pageMasterData;
-        self.title = title;
-
-        [self updateSinglePageData];
-        [self updateSpreadPageData];
+        self.viewerContentData = viewerContentData;
     }
     return self;
 }
 
 - (ANCPageContentViewController *)viewControllerAtIndex:(NSUInteger)index {
     // Return the data view controller for the given index.
-    if ((self.singlePageData.count == 0) || (index >= self.singlePageData.count)) {
+    if ((self.viewerContentData.singlePageData.count == 0) || (index >= self.viewerContentData.singlePageData.count)) {
         return nil;
     }
 
@@ -50,15 +40,15 @@
     UIInterfaceOrientation orientation = [UIApplication currentInterfaceOrientation];
     // Whether the device orientation is Portrait or not.
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        if ((self.singlePageData.count != 0) && (index < self.singlePageData.count)) {
-            pageContentViewController.imageURL1 = self.singlePageData[index];
+        if ((self.viewerContentData.singlePageData.count != 0) && (index < self.viewerContentData.singlePageData.count)) {
+            pageContentViewController.imageURL1 = self.viewerContentData.singlePageData[index];
         }
     } else {
-        if ((self.rightPageData.count != 0) && (index < self.rightPageData.count)) {
-            pageContentViewController.imageURL1 = self.rightPageData[index];
+        if ((self.viewerContentData.rightPageData.count != 0) && (index < self.viewerContentData.rightPageData.count)) {
+            pageContentViewController.imageURL1 = self.viewerContentData.rightPageData[index];
         }
-        if ((self.leftPageData.count != 0) && (index < self.leftPageData.count)) {
-            pageContentViewController.imageURL2 = self.leftPageData[index];
+        if ((self.viewerContentData.leftPageData.count != 0) && (index < self.viewerContentData.leftPageData.count)) {
+            pageContentViewController.imageURL2 = self.viewerContentData.leftPageData[index];
         }
     }
     self.currentIndex = index;
@@ -67,39 +57,13 @@
 
 #pragma mark - class extension
 
-- (void)updateSinglePageData {
-    self.singlePageData = [self.pageMasterData copy];
-}
-
-- (void)updateSpreadPageData {
-
-    NSMutableArray<NSString *> *mutableSpreadPageData = [self.pageMasterData mutableCopy];
-    [mutableSpreadPageData insertObject: @"" atIndex: 0];
-    if (mutableSpreadPageData.count % 2 != 0) {
-        [mutableSpreadPageData addObject: @""];
-    }
-    NSArray<NSString *> *spreadPageData = [mutableSpreadPageData copy];
-
-    NSMutableArray *rightPageData = [NSMutableArray array];
-    NSMutableArray *leftPageData = [NSMutableArray array];
-    [spreadPageData enumerateObjectsUsingBlock: ^(NSString *data, NSUInteger index, BOOL *stop) {
-        if (index % 2 == 0) {
-            [rightPageData addObject: data];
-        } else {
-            [leftPageData addObject: data];
-        }
-    }];
-    self.rightPageData = [rightPageData copy];
-    self.leftPageData = [leftPageData copy];
-}
-
 - (NSUInteger)indexOfViewController:(ANCPageContentViewController *)viewController {
     UIInterfaceOrientation orientation = [UIApplication currentInterfaceOrientation];
     // Whether the device orientation is Portrait or not.
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        return [self.singlePageData indexOfObject: viewController.imageURL1];
+        return [self.viewerContentData.singlePageData indexOfObject: viewController.imageURL1];
     } else {
-        return [self.rightPageData indexOfObject: viewController.imageURL1];
+        return [self.viewerContentData.rightPageData indexOfObject: viewController.imageURL1];
     }
 }
 
@@ -125,11 +89,11 @@
     UIInterfaceOrientation orientation = [UIApplication currentInterfaceOrientation];
     // Whether the device orientation is Portrait or not.
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        if (index == self.singlePageData.count) {
+        if (index == self.viewerContentData.singlePageData.count) {
             return nil;
         }
     } else {
-        if (index == self.rightPageData.count) {
+        if (index == self.viewerContentData.rightPageData.count) {
             return nil;
         }
     }

@@ -7,19 +7,16 @@
 
 #import <UIKit/UIKit.h>
 #import <AncientComicViewerView/ANCPageContentViewController.h>
+#import <AncientComicViewerView/ANCViewerContentData.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ANCPageController : NSObject <UIPageViewControllerDataSource>
 
 @property (assign, nonatomic) NSInteger currentIndex;
-@property (readonly, strong, nonatomic) NSString *title;
-@property (readonly, strong, nonatomic) NSArray<NSString *> *pageMasterData;
-@property (readonly, strong, nonatomic) NSArray<NSString *> *singlePageData;
-@property (readonly, strong, nonatomic) NSArray<NSString *> *rightPageData;
-@property (readonly, strong, nonatomic) NSArray<NSString *> *leftPageData;
+@property (readonly, strong, nonatomic) ANCViewerContentData *viewerContentData;
 
-- (instancetype)initWithPageMasterData:(NSArray<NSString *> *)pageMasterData title:(NSString *)title;
+- (instancetype)initWithViewerContentData:(ANCViewerContentData *)viewerContentData;
 - (ANCPageContentViewController *)viewControllerAtIndex:(NSUInteger)index;
 
 @end

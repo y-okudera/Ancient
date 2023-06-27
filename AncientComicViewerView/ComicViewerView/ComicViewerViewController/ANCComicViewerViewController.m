@@ -10,30 +10,10 @@
 #import "ANCPageContentViewController.h"
 #import "UIApplication+ANCCurrentWindowInterfaceOrientation.h"
 
-@interface ANCComicViewerViewController ()
-
-@property (readwrite, strong, nonatomic) ANCPageController *pageController;
-
-@end
-
 @implementation ANCComicViewerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // MARK: - 画面回転時、画像URLからindexを取得するため、テストデータであっても配列内に画像URLが重複しないよう考慮が必要
-    NSArray<NSString *> *pageMasterData = @[
-        @"https://affi-drifter.com/wp-content/uploads/2018/05/20170828180155-320x186.jpg",
-        @"https://grapee.jp/wp-content/uploads/57507_01.jpg",
-        @"https://grapee.jp/wp-content/uploads/57507_02.jpg",
-        @"https://grapee.jp/wp-content/uploads/57507_03.jpg",
-        @"https://grapee.jp/wp-content/uploads/57507_04.jpg",
-        @"https://ichef.bbci.co.uk/news/467/cpsprodpb/660A/production/_122722162_download.png",
-    ];
-    self.pageController = [[ANCPageController alloc] initWithPageMasterData: pageMasterData title:@"サンプル漫画 - 123"];
-
-    ANCComicViewerContainerViewController *vc = (ANCComicViewerContainerViewController *)[self parentViewController];
-    [vc updateToolbarTitle: self.pageController.title];
 
     // Create the initial content view controller
     [self setContentViewControllerAtIndex: 0];
@@ -78,12 +58,12 @@
     [coordinator animateAlongsideTransition: ^(id<UIViewControllerTransitionCoordinatorContext> context) {
         ANCPageContentViewController *pageContentVC = self.viewControllers.firstObject;
 
-        NSUInteger singlePageDataIndex = [self.pageController.singlePageData indexOfObject: pageContentVC.imageURL1];
+        NSUInteger singlePageDataIndex = [self.pageController.viewerContentData.singlePageData indexOfObject: pageContentVC.imageURL1];
         singlePageDataIndex = singlePageDataIndex == NSNotFound ? 0 : singlePageDataIndex;
 
-        NSUInteger spreadPageDataIndex = [self.pageController.rightPageData indexOfObject: pageContentVC.imageURL1];
+        NSUInteger spreadPageDataIndex = [self.pageController.viewerContentData.rightPageData indexOfObject: pageContentVC.imageURL1];
         if (spreadPageDataIndex == NSNotFound) {
-            spreadPageDataIndex = [self.pageController.leftPageData indexOfObject: pageContentVC.imageURL1];
+            spreadPageDataIndex = [self.pageController.viewerContentData.leftPageData indexOfObject: pageContentVC.imageURL1];
         }
         spreadPageDataIndex = spreadPageDataIndex == NSNotFound ? 0 : spreadPageDataIndex;
 
@@ -116,12 +96,12 @@
 
     ANCPageContentViewController *pageContentVC = self.viewControllers.firstObject;
 
-    NSUInteger singlePageDataIndex = [self.pageController.singlePageData indexOfObject: pageContentVC.imageURL1];
+    NSUInteger singlePageDataIndex = [self.pageController.viewerContentData.singlePageData indexOfObject: pageContentVC.imageURL1];
     singlePageDataIndex = singlePageDataIndex == NSNotFound ? 0 : singlePageDataIndex;
 
-    NSUInteger spreadPageDataIndex = [self.pageController.rightPageData indexOfObject: pageContentVC.imageURL1];
+    NSUInteger spreadPageDataIndex = [self.pageController.viewerContentData.rightPageData indexOfObject: pageContentVC.imageURL1];
     if (spreadPageDataIndex == NSNotFound) {
-        spreadPageDataIndex = [self.pageController.leftPageData indexOfObject: pageContentVC.imageURL1];
+        spreadPageDataIndex = [self.pageController.viewerContentData.leftPageData indexOfObject: pageContentVC.imageURL1];
     }
     spreadPageDataIndex = spreadPageDataIndex == NSNotFound ? 0 : spreadPageDataIndex;
 

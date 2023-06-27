@@ -15,8 +15,9 @@ FOUNDATION_EXPORT const unsigned char AncientComicViewerViewVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <AncientComicViewerView/PublicHeader.h>
 
-#import <AncientComicViewerView/ANCPageController.h>
-#import <AncientComicViewerView/ANCComicViewerViewController.h>
+#import <AncientComicViewerView/ANCViewerContentData.h>
 #import <AncientComicViewerView/ANCComicViewerContainerViewController.h>
+#import <AncientComicViewerView/ANCComicViewerViewController.h>
+#import <AncientComicViewerView/ANCPageContentViewController.h>
 #import <AncientComicViewerView/ANCPageController.h>
 #import <AncientComicViewerView/UIApplication+ANCCurrentWindowInterfaceOrientation.h>
